@@ -31,6 +31,10 @@ body {
   line-height: inherit;
 }
 
+:root {
+  --navbar-height: 72px;
+}
+
 hr {
   height: 0;
   undefined: undefined;
@@ -523,6 +527,14 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 100%;
+}
+
+.course-page .main-content {
+  padding-right: calc(1.5rem + 300px);
+}
+
+.course-page #infographics-attention-block .iab-infographic-container {
+  padding-right: calc(1.5rem + 300px);
 }
 
 .breadcrumb-wrapper {
@@ -1587,17 +1599,35 @@ video {
 
 #infographics-attention-block .iab-fixed {
   position: fixed;
-  right: 16px;
-  top: 76px;
-  width: 220px;
-  z-index: 60;
-  background-color: #ffffff;
+  right: clamp(12px, 4vw, 32px);
+  top: var(--navbar-height, 72px);
+  height: calc(100vh - var(--navbar-height, 72px));
+  width: 260px;
+  z-index: 40;
+  background-color: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  padding: 1rem;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.25rem 1.25rem 1.5rem;
   display: grid;
   gap: 1rem;
+  overflow-y: auto;
+}
+
+@media (max-width: 1200px) {
+  .course-page .main-content,
+  .course-page #infographics-attention-block .iab-infographic-container {
+    padding-right: 1.5rem;
+  }
+
+  #infographics-attention-block .iab-fixed {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+  }
 }
 
 #infographics-attention-block .iab-header {
@@ -7103,4 +7133,12 @@ video {
   .filters-form {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+}
+
+#infographics-attention-block .iab-fixed {
+  top: calc(var(--navbar-height, 72px) + 16px);
+  bottom: 16px;
+  height: auto;
+  max-height: calc(100vh - var(--navbar-height, 72px) - 32px);
+  overflow-y: auto;
 }
