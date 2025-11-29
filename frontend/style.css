@@ -6,7 +6,6 @@ html {
 ::before,
 ::after {
   box-sizing: border-box;
-  undefined: undefined;
   border-width: 0;
   border-style: solid;
   border-color: #e5e7eb;
@@ -15,7 +14,6 @@ html {
 html,
 :host {
   line-height: 1.5;
-  undefined: undefined;
   -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
   tab-size: 4;
@@ -27,13 +25,11 @@ html,
 
 body {
   margin: 0;
-  undefined: undefined;
   line-height: inherit;
 }
 
 hr {
   height: 0;
-  undefined: undefined;
   color: inherit;
   border-top-width: 1px;
 }
@@ -67,7 +63,6 @@ kbd,
 samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  undefined: undefined;
   font-feature-settings: normal;
   font-variation-settings: normal;
   font-size: 1em;
@@ -95,7 +90,6 @@ sup {
 
 table {
   text-indent: 0;
-  undefined: undefined;
   border-color: inherit;
   border-collapse: collapse;
 }
@@ -106,7 +100,6 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-  undefined: undefined;
   font-feature-settings: inherit;
   font-variation-settings: inherit;
   font-size: 100%;
@@ -128,7 +121,6 @@ input:where([type='button']),
 input:where([type='reset']),
 input:where([type='submit']) {
   -webkit-appearance: button;
-  undefined: undefined;
   background-color: transparent;
   background-image: none;
 }
@@ -152,7 +144,6 @@ progress {
 
 [type='search'] {
   -webkit-appearance: textfield;
-  undefined: undefined;
   outline-offset: -2px;
 }
 
@@ -162,7 +153,6 @@ progress {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  undefined: undefined;
   font: inherit;
 }
 
@@ -214,7 +204,6 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
-  undefined: undefined;
   color: #9ca3af;
 }
 
@@ -236,7 +225,6 @@ iframe,
 embed,
 object {
   display: block;
-  undefined: undefined;
   vertical-align: middle;
 }
 
@@ -1978,7 +1966,6 @@ html {
 ::before,
 ::after {
   box-sizing: border-box;
-  undefined: undefined;
   border-width: 0;
   border-style: solid;
   border-color: #e5e7eb;
@@ -1987,7 +1974,6 @@ html {
 html,
 :host {
   line-height: 1.5;
-  undefined: undefined;
   -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
   tab-size: 4;
@@ -1999,13 +1985,11 @@ html,
 
 body {
   margin: 0;
-  undefined: undefined;
   line-height: inherit;
 }
 
 hr {
   height: 0;
-  undefined: undefined;
   color: inherit;
   border-top-width: 1px;
 }
@@ -2039,7 +2023,6 @@ kbd,
 samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  undefined: undefined;
   font-feature-settings: normal;
   font-variation-settings: normal;
   font-size: 1em;
@@ -2067,7 +2050,6 @@ sup {
 
 table {
   text-indent: 0;
-  undefined: undefined;
   border-color: inherit;
   border-collapse: collapse;
 }
@@ -2078,7 +2060,6 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-  undefined: undefined;
   font-feature-settings: inherit;
   font-variation-settings: inherit;
   font-size: 100%;
@@ -2100,7 +2081,6 @@ input:where([type='button']),
 input:where([type='reset']),
 input:where([type='submit']) {
   -webkit-appearance: button;
-  undefined: undefined;
   background-color: transparent;
   background-image: none;
 }
@@ -2124,7 +2104,6 @@ progress {
 
 [type='search'] {
   -webkit-appearance: textfield;
-  undefined: undefined;
   outline-offset: -2px;
 }
 
@@ -2134,7 +2113,6 @@ progress {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  undefined: undefined;
   font: inherit;
 }
 
@@ -2186,7 +2164,6 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
-  undefined: undefined;
   color: #9ca3af;
 }
 
@@ -2208,7 +2185,6 @@ iframe,
 embed,
 object {
   display: block;
-  undefined: undefined;
   vertical-align: middle;
 }
 
@@ -3670,7 +3646,6 @@ html {
 ::before,
 ::after {
   box-sizing: border-box;
-  undefined: undefined;
   border-width: 0;
   border-style: solid;
   border-color: #e5e7eb;
@@ -3679,7 +3654,6 @@ html {
 html,
 :host {
   line-height: 1.5;
-  undefined: undefined;
   -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
   tab-size: 4;
@@ -3691,13 +3665,11 @@ html,
 
 body {
   margin: 0;
-  undefined: undefined;
   line-height: inherit;
 }
 
 hr {
   height: 0;
-  undefined: undefined;
   color: inherit;
   border-top-width: 1px;
 }
@@ -3731,7 +3703,6 @@ kbd,
 samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  undefined: undefined;
   font-feature-settings: normal;
   font-variation-settings: normal;
   font-size: 1em;
@@ -3759,7 +3730,6 @@ sup {
 
 table {
   text-indent: 0;
-  undefined: undefined;
   border-color: inherit;
   border-collapse: collapse;
 }
@@ -3770,7 +3740,6 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-  undefined: undefined;
   font-feature-settings: inherit;
   font-variation-settings: inherit;
   font-size: 100%;
@@ -3792,7 +3761,6 @@ input:where([type='button']),
 input:where([type='reset']),
 input:where([type='submit']) {
   -webkit-appearance: button;
-  undefined: undefined;
   background-color: transparent;
   background-image: none;
 }
@@ -3816,7 +3784,6 @@ progress {
 
 [type='search'] {
   -webkit-appearance: textfield;
-  undefined: undefined;
   outline-offset: -2px;
 }
 
@@ -3826,7 +3793,6 @@ progress {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  undefined: undefined;
   font: inherit;
 }
 
@@ -3878,7 +3844,6 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
-  undefined: undefined;
   color: #9ca3af;
 }
 
@@ -3900,7 +3865,6 @@ iframe,
 embed,
 object {
   display: block;
-  undefined: undefined;
   vertical-align: middle;
 }
 
@@ -5233,7 +5197,6 @@ html {
 ::before,
 ::after {
   box-sizing: border-box;
-  undefined: undefined;
   border-width: 0;
   border-style: solid;
   border-color: #e5e7eb;
@@ -5242,7 +5205,6 @@ html {
 html,
 :host {
   line-height: 1.5;
-  undefined: undefined;
   -webkit-text-size-adjust: 100%;
   -moz-tab-size: 4;
   tab-size: 4;
@@ -5254,13 +5216,11 @@ html,
 
 body {
   margin: 0;
-  undefined: undefined;
   line-height: inherit;
 }
 
 hr {
   height: 0;
-  undefined: undefined;
   color: inherit;
   border-top-width: 1px;
 }
@@ -5294,7 +5254,6 @@ kbd,
 samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  undefined: undefined;
   font-feature-settings: normal;
   font-variation-settings: normal;
   font-size: 1em;
@@ -5322,7 +5281,6 @@ sup {
 
 table {
   text-indent: 0;
-  undefined: undefined;
   border-color: inherit;
   border-collapse: collapse;
 }
@@ -5333,7 +5291,6 @@ optgroup,
 select,
 textarea {
   font-family: inherit;
-  undefined: undefined;
   font-feature-settings: inherit;
   font-variation-settings: inherit;
   font-size: 100%;
@@ -5355,7 +5312,6 @@ input:where([type='button']),
 input:where([type='reset']),
 input:where([type='submit']) {
   -webkit-appearance: button;
-  undefined: undefined;
   background-color: transparent;
   background-image: none;
 }
@@ -5379,7 +5335,6 @@ progress {
 
 [type='search'] {
   -webkit-appearance: textfield;
-  undefined: undefined;
   outline-offset: -2px;
 }
 
@@ -5389,7 +5344,6 @@ progress {
 
 ::-webkit-file-upload-button {
   -webkit-appearance: button;
-  undefined: undefined;
   font: inherit;
 }
 
@@ -5441,7 +5395,6 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
-  undefined: undefined;
   color: #9ca3af;
 }
 
@@ -5463,7 +5416,6 @@ iframe,
 embed,
 object {
   display: block;
-  undefined: undefined;
   vertical-align: middle;
 }
 
