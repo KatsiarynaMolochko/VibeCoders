@@ -1790,6 +1790,47 @@ video {
   display: block;
 }
 
+#infographics-attention-block {
+  margin-top: 2rem;
+}
+
+#infographics-attention-block .iab-content {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+#infographics-attention-block .iab-fixed {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  z-index: 1;
+}
+
+#infographics-attention-block .iab-infographic {
+  margin-top: 0;
+  border-top: none;
+}
+
+#infographics-attention-block .iab-infographic-container {
+  max-width: none;
+  margin: 0;
+  height: 100%;
+}
+
+@media (max-width: 1023px) {
+  #infographics-attention-block .iab-content {
+    grid-template-columns: 1fr;
+  }
+
+  #infographics-attention-block .iab-infographic {
+    margin-top: 1rem;
+  }
+}
+
 #iabMarker {
   top: 64%;
 }
@@ -7102,5 +7143,26 @@ video {
 
   .filters-form {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+#infographics-attention-block .iab-fixed {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+#infographics-attention-block .iab-infographic-container {
+  max-width: none;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+@media (max-width: 1023px) {
+  #infographics-attention-block .iab-content {
+    grid-template-columns: 1fr;
   }
 }
