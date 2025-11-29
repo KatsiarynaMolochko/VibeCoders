@@ -449,6 +449,21 @@ RICE = (2000 * 2 * 0.7) / 2 = 1400</code></pre>
           });
         }());
       </script>
+      <script>
+        (function() {
+          var header = document.querySelector('.header-navbar');
+          var rootStyle = document.documentElement.style;
+
+          function syncNavbarHeight() {
+            if (!header) return;
+            var height = header.getBoundingClientRect().height;
+            rootStyle.setProperty('--navbar-height', height + 'px');
+          }
+
+          syncNavbarHeight();
+          window.addEventListener('resize', syncNavbarHeight);
+        }());
+      </script>
     </section>
     <footer class="footer" id="iqlnpt">
       <div class="footer-container" id="ib7bsp">
