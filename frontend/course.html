@@ -46,8 +46,8 @@
       </div>
     </header>
     <main id="iyby5" class="main-content">
-      <section id="attention-meter-block" aria-label="Attention Meter Sidebar and Infographic Placeholder"><!-- Fixed attention meter sidebar -->
-        <aside role="complementary" aria-label="Attention indicator" data-attention="68" data-span-seconds="450" class="am-fixed gjs-t-border" id="iz2gf">
+      <section id="attention-meter-block" aria-label="Attention Meter Sidebar and Infographic Placeholder">
+        <aside role="complementary" aria-label="Attention indicator" class="am-fixed gjs-t-border" id="iz2gf" style="--am-level: 68;">
           <div class="am-header" id="i5wi2">
             <span class="am-title" id="ij71o">
               <img src="https://api.iconify.design/lucide-activity.svg?color=%23334155" alt="Attention icon" width="16" height="16" id="ii8g4" />
@@ -57,17 +57,19 @@
               <strong id="amPercent">68%</strong>
             </span>
           </div>
-          <div class="am-colorbar-wrap" id="is2s4">
-            <div aria-hidden="true" class="am-colorbar" id="ix79y">
-              <div id="amMarker" class="am-marker"></div>
-              <div id="amKnob" class="am-marker-knob"></div>
-            </div>
-            <div aria-hidden="true" class="am-scale" id="i123l">
-              <span class="am-scale-label" id="ia49i">100% • High</span>
-              <span class="am-scale-label" id="iccmj">75%</span>
-              <span class="am-scale-label" id="im0ch">50% • Medium</span>
-              <span class="am-scale-label" id="is0xf">25%</span>
-              <span class="am-scale-label" id="i485o">0% • Low</span>
+          <div class="am-body">
+            <div class="am-colorbar-wrap" id="is2s4">
+              <div aria-hidden="true" class="am-colorbar" id="ix79y">
+                <div id="amMarker" class="am-marker"></div>
+                <div id="amKnob" class="am-marker-knob"></div>
+              </div>
+              <div aria-hidden="true" class="am-scale" id="i123l">
+                <span class="am-scale-label" id="ia49i">100% • High</span>
+                <span class="am-scale-label" id="iccmj">75%</span>
+                <span class="am-scale-label" id="im0ch">50% • Medium</span>
+                <span class="am-scale-label" id="is0xf">25%</span>
+                <span class="am-scale-label" id="i485o">0% • Low</span>
+              </div>
             </div>
           </div>
           <div aria-label="Average attention span" class="am-as-card gjs-t-border" id="iy5rj">
@@ -76,67 +78,13 @@
               Average attention span
             </div>
             <div id="amSpan" class="am-as-value">7 min 30 s</div>
-            <div class="am-as-hint" id="ie1de">Updates while you read</div>
+            <div class="am-as-hint" id="ie1de">Live as you read</div>
           </div>
           <div class="am-footer-note" id="ibhzp">
             <img src="https://api.iconify.design/lucide-info.svg?color=%2364748b" alt="Hint" width="14" height="14" id="i7j2h" />
-            Moves on scroll
+            Fixed while you learn
           </div>
         </aside><!-- Bottom infographic placeholder -->
-        <script id="iplai">
-          (function() {
-            var root = document.querySelector('#attention-meter-block .am-fixed');
-            if (!root) return;
-
-            function formatSpan(seconds) {
-              seconds = Math.max(0, Math.floor(seconds || 0));
-              var m = Math.floor(seconds / 60);
-              var s = seconds % 60;
-              return (m ? m + ' min ' : '') + (s + ' s');
-            }
-
-            function clamp(v, min, max) {
-              return Math.min(max, Math.max(min, v));
-            }
-
-            function updateFromData() {
-              var attention = parseFloat(root.getAttribute('data-attention'));
-              if (isNaN(attention)) attention = 0;
-              attention = clamp(attention, 0, 100);
-
-              var span = parseFloat(root.getAttribute('data-span-seconds'));
-              if (isNaN(span)) span = 0;
-
-              var percentEl = document.getElementById('amPercent');
-              var spanEl = document.getElementById('amSpan');
-              var marker = document.getElementById('amMarker');
-              var knob = document.getElementById('amKnob');
-
-              if (percentEl) percentEl.textContent = Math.round(attention) + '%';
-              if (spanEl) spanEl.textContent = formatSpan(span);
-
-              // Position: top from 100% to 0% (0% at bottom). Convert to CSS top in %
-              var topPos = (100 - attention) + '%';
-              if (marker) marker.style.top = topPos;
-              if (knob) knob.style.top = topPos;
-            }
-
-            // Initial
-            updateFromData();
-
-            // Optional: allow external updates via event
-            window.addEventListener('attention:update', function(e) {
-              if (!e || !e.detail) return;
-              if (typeof e.detail.attention === 'number') {
-                root.setAttribute('data-attention', String(e.detail.attention));
-              }
-              if (typeof e.detail.spanSeconds === 'number') {
-                root.setAttribute('data-span-seconds', String(e.detail.spanSeconds));
-              }
-              updateFromData();
-            });
-          }());
-        </script>
       </section>
       <div class="breadcrumb-wrapper" id="iy9sk">
         <a href="./courses.html" class="gjs-t-link breadcrumb-link" id="ixl57">Courses</a>
