@@ -550,12 +550,15 @@ video {
 
 .lecture-layout {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: minmax(260px, 280px) minmax(0, 1fr) minmax(220px, 280px);
+  gap: 1.75rem;
+  align-items: start;
 }
 
-.lecture-meta-sidebar {
-  grid-column: 1 / span 3;
+.lecture-meta-sidebar,
+.lecture-article,
+.attention-sidebar {
+  grid-row: 1;
 }
 
 .card-meta {
@@ -719,7 +722,6 @@ video {
 }
 
 .attention-sidebar {
-  grid-column: 11 / span 2;
   align-self: start;
   position: sticky;
   top: 76px;
@@ -845,7 +847,7 @@ video {
 }
 
 .lecture-article {
-  grid-column: 4 / span 7;
+  width: 100%;
 }
 
 .lecture-card {
@@ -7124,12 +7126,13 @@ video {
 @media (max-width: 1200px) {
   .lecture-layout {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .lecture-meta-sidebar,
   .attention-sidebar,
   .lecture-article {
-    grid-column: span 12 / span 12;
+    grid-row: auto;
   }
 
   .attention-sidebar {
@@ -7137,14 +7140,11 @@ video {
     height: auto;
     box-shadow: none;
     border-radius: 0.5rem;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 992px) {
-  .lecture-article {
-    grid-column: span 12 / span 12;
-  }
-
   .attention-sidebar {
     padding: 1rem;
     min-height: 0;
