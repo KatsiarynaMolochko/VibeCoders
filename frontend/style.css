@@ -550,12 +550,15 @@ video {
 
 .lecture-layout {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: minmax(260px, 280px) minmax(0, 1fr) minmax(220px, 280px);
+  gap: 1.75rem;
+  align-items: start;
 }
 
-.lecture-meta-sidebar {
-  grid-column: span 3 / span 3;
+.lecture-meta-sidebar,
+.lecture-article,
+.attention-sidebar {
+  grid-row: 1;
 }
 
 .card-meta {
@@ -718,8 +721,133 @@ video {
   background-color: rgb(29 78 216 / 1);
 }
 
+.attention-sidebar {
+  align-self: start;
+  position: sticky;
+  top: 76px;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.iab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.iab-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.iab-value {
+  color: #0f172a;
+  font-size: 1rem;
+}
+
+.iab-colorbar-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.iab-colorbar {
+  position: relative;
+  width: 8px;
+  height: 100%;
+  min-height: 360px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #22c55e 0%, #eab308 50%, #ef4444 100%);
+}
+
+.iab-marker {
+  position: absolute;
+  left: -12px;
+  width: 32px;
+  border-radius: 9999px;
+  padding: 0.15rem 0.35rem;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 0.75rem;
+  transform: translateY(-50%);
+  top: calc(100% - var(--iab-level, 0) * 1%);
+}
+
+.iab-marker-knob {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #0ea5e9;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+  top: calc(100% - var(--iab-level, 0) * 1%);
+}
+
+.iab-scale {
+  display: grid;
+  gap: 0.35rem;
+  color: #475569;
+  font-size: 0.82rem;
+}
+
+.iab-scale-label {
+  display: block;
+}
+
+.iab-card {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+  color: #0f172a;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.iab-card-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.iab-card-value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.iab-card-hint {
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.iab-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #475569;
+  font-size: 0.85rem;
+}
+
 .lecture-article {
-  grid-column: span 9 / span 9;
+  width: 100%;
 }
 
 .lecture-card {
@@ -1788,6 +1916,47 @@ video {
   color: #94a3b8;
   margin-top: 4px;
   display: block;
+}
+
+#infographics-attention-block {
+  margin-top: 2rem;
+}
+
+#infographics-attention-block .iab-content {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+#infographics-attention-block .iab-fixed {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  z-index: 1;
+}
+
+#infographics-attention-block .iab-infographic {
+  margin-top: 0;
+  border-top: none;
+}
+
+#infographics-attention-block .iab-infographic-container {
+  max-width: none;
+  margin: 0;
+  height: 100%;
+}
+
+@media (max-width: 1023px) {
+  #infographics-attention-block .iab-content {
+    grid-template-columns: 1fr;
+  }
+
+  #infographics-attention-block .iab-infographic {
+    margin-top: 1rem;
+  }
 }
 
 #iabMarker {
@@ -6947,160 +7116,37 @@ video {
   width: 100%;
 }
 
-.gh-table thead th {
-  text-align: left;
-  padding: 0.75rem 1rem;
-  background: #f8fafc;
-  color: var(--gjs-t-color-secondary);
-  font-weight: 600;
-  border-bottom: 1px solid #e2e8f0;
+.main-content {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.25rem 1.5rem;
 }
 
-.gh-table tbody td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #e2e8f0;
-  color: #0f172a;
-}
-
-.gh-table tbody tr:nth-child(odd) {
-  background: #f9fafb;
-}
-
-.gh-table tbody tr:hover {
-  background: #eff6ff;
-  transition: background-color .2s ease;
-}
-
-.gh-table a {
-  color: var(--gjs-t-color-primary);
-  text-decoration: none;
-}
-
-.gh-table a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 992px) {
-  .search-input {
-    width: 11rem;
+@media (max-width: 1200px) {
+  .lecture-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .main-content {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  .lecture-meta-sidebar,
+  .attention-sidebar,
+  .lecture-article {
+    grid-row: auto;
   }
 
-  .footer-brand {
-    grid-column: span 12 / span 12;
-  }
-
-  .footer-links {
-    grid-column: span 6 / span 6;
-  }
-
-  .footer-contact {
-    grid-column: span 6 / span 6;
-  }
-
-  #attention-meter-block .am-fixed {
-    right: 12px;
-    bottom: 12px;
-    top: auto;
-    width: 220px;
-    padding: 0.875rem;
-  }
-
-  #attention-meter-block .am-colorbar {
-    height: 180px;
-  }
-
-  #infographics-attention-block .iab-fixed {
-    right: 12px;
-    bottom: 12px;
-    top: auto;
-    width: 220px;
-    padding: 0.875rem;
-  }
-
-  #infographics-attention-block .iab-colorbar {
-    height: 180px;
-  }
-
-  #infographics-attention-block .iab-infographic-container {
-    padding: 1.25rem;
-  }
-
-  .hero-container {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .courses-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .footer-container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .hero-media {
-    width: 100%;
-  }
-
-  .filters-form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hero-search-wrap {
+  .attention-sidebar {
+    position: static;
+    height: auto;
+    box-shadow: none;
+    border-radius: 0.5rem;
     max-width: 100%;
   }
 }
 
-@media (max-width: 480px) {
-  .search-input {
-    width: 9rem;
-  }
-
-  #attention-meter-block .am-fixed {
-    width: 200px;
-    right: 10px;
-    bottom: 10px;
-  }
-
-  #attention-meter-block .am-infographic {
-    padding: 1.25rem;
-  }
-
-  #attention-meter-block .am-chart-placeholder {
-    height: 220px;
-  }
-
-  #infographics-attention-block .iab-fixed {
-    width: 200px;
-    right: 10px;
-    bottom: 10px;
-  }
-
-  #infographics-attention-block .iab-chart-placeholder {
-    height: 220px;
-  }
-
-  .hero-image {
-    height: 220px;
-  }
-
-  .courses-grid {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  .footer-container {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
-  .filters-form {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+@media (max-width: 992px) {
+  .attention-sidebar {
+    padding: 1rem;
+    min-height: 0;
   }
 }

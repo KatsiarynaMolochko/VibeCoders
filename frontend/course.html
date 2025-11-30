@@ -46,98 +46,6 @@
       </div>
     </header>
     <main id="iyby5" class="main-content">
-      <section id="attention-meter-block" aria-label="Attention Meter Sidebar and Infographic Placeholder"><!-- Fixed attention meter sidebar -->
-        <aside role="complementary" aria-label="Attention indicator" data-attention="68" data-span-seconds="450" class="am-fixed gjs-t-border" id="iz2gf">
-          <div class="am-header" id="i5wi2">
-            <span class="am-title" id="ij71o">
-              <img src="https://api.iconify.design/lucide-activity.svg?color=%23334155" alt="Attention icon" width="16" height="16" id="ii8g4" />
-              Attention
-            </span>
-            <span aria-live="polite" class="am-value" id="inbi8">
-              <strong id="amPercent">68%</strong>
-            </span>
-          </div>
-          <div class="am-colorbar-wrap" id="is2s4">
-            <div aria-hidden="true" class="am-colorbar" id="ix79y">
-              <div id="amMarker" class="am-marker"></div>
-              <div id="amKnob" class="am-marker-knob"></div>
-            </div>
-            <div aria-hidden="true" class="am-scale" id="i123l">
-              <span class="am-scale-label" id="ia49i">100% • High</span>
-              <span class="am-scale-label" id="iccmj">75%</span>
-              <span class="am-scale-label" id="im0ch">50% • Medium</span>
-              <span class="am-scale-label" id="is0xf">25%</span>
-              <span class="am-scale-label" id="i485o">0% • Low</span>
-            </div>
-          </div>
-          <div aria-label="Average attention span" class="am-as-card gjs-t-border" id="iy5rj">
-            <div class="am-as-title" id="imkmj">
-              <img src="https://api.iconify.design/lucide-timer.svg?color=%23334155" alt="Timer icon" width="16" height="16" id="i1z0d" />
-              Average attention span
-            </div>
-            <div id="amSpan" class="am-as-value">7 min 30 s</div>
-            <div class="am-as-hint" id="ie1de">Updates while you read</div>
-          </div>
-          <div class="am-footer-note" id="ibhzp">
-            <img src="https://api.iconify.design/lucide-info.svg?color=%2364748b" alt="Hint" width="14" height="14" id="i7j2h" />
-            Moves on scroll
-          </div>
-        </aside><!-- Bottom infographic placeholder -->
-        <script id="iplai">
-          (function() {
-            var root = document.querySelector('#attention-meter-block .am-fixed');
-            if (!root) return;
-
-            function formatSpan(seconds) {
-              seconds = Math.max(0, Math.floor(seconds || 0));
-              var m = Math.floor(seconds / 60);
-              var s = seconds % 60;
-              return (m ? m + ' min ' : '') + (s + ' s');
-            }
-
-            function clamp(v, min, max) {
-              return Math.min(max, Math.max(min, v));
-            }
-
-            function updateFromData() {
-              var attention = parseFloat(root.getAttribute('data-attention'));
-              if (isNaN(attention)) attention = 0;
-              attention = clamp(attention, 0, 100);
-
-              var span = parseFloat(root.getAttribute('data-span-seconds'));
-              if (isNaN(span)) span = 0;
-
-              var percentEl = document.getElementById('amPercent');
-              var spanEl = document.getElementById('amSpan');
-              var marker = document.getElementById('amMarker');
-              var knob = document.getElementById('amKnob');
-
-              if (percentEl) percentEl.textContent = Math.round(attention) + '%';
-              if (spanEl) spanEl.textContent = formatSpan(span);
-
-              // Position: top from 100% to 0% (0% at bottom). Convert to CSS top in %
-              var topPos = (100 - attention) + '%';
-              if (marker) marker.style.top = topPos;
-              if (knob) knob.style.top = topPos;
-            }
-
-            // Initial
-            updateFromData();
-
-            // Optional: allow external updates via event
-            window.addEventListener('attention:update', function(e) {
-              if (!e || !e.detail) return;
-              if (typeof e.detail.attention === 'number') {
-                root.setAttribute('data-attention', String(e.detail.attention));
-              }
-              if (typeof e.detail.spanSeconds === 'number') {
-                root.setAttribute('data-span-seconds', String(e.detail.spanSeconds));
-              }
-              updateFromData();
-            });
-          }());
-        </script>
-      </section>
       <div class="breadcrumb-wrapper" id="iy9sk">
         <a href="./courses.html" class="gjs-t-link breadcrumb-link" id="ixl57">Courses</a>
         <span class="breadcrumb-divider" id="i907k">/</span>
@@ -336,120 +244,132 @@ RICE = (2000 * 2 * 0.7) / 2 = 1400</code></pre>
             </div>
           </section>
         </article>
+        
+        <aside role="complementary" aria-label="Attention indicator" id="iabRoot" class="attention-sidebar gjs-t-border" style="--iab-level: 68;">
+          <div class="iab-header" id="it4drw">
+            <span class="iab-title" id="isj9km">
+              <img src="https://api.iconify.design/lucide-activity.svg?color=%23334155" width="16" height="16" alt="Attention icon" id="itc9ic" />
+              Attention
+            </span>
+            <span aria-live="polite" class="iab-value" id="ij10u6">
+              <strong id="iabPercent">68%</strong>
+            </span>
+          </div>
+          <div class="iab-colorbar-wrap" id="i9iucz">
+            <div aria-hidden="true" class="iab-colorbar" id="id4uen">
+              <div id="iabMarker" class="iab-marker"></div>
+              <div id="iabKnob" class="iab-marker-knob"></div>
+            </div>
+            <div aria-hidden="true" class="iab-scale" id="imxbi6">
+              <span class="iab-scale-label" id="iil12l">100% • High</span>
+              <span class="iab-scale-label" id="i7s978">75%</span>
+              <span class="iab-scale-label" id="i0ccfq">50% • Medium</span>
+              <span class="iab-scale-label" id="iscy9n">25%</span>
+              <span class="iab-scale-label" id="i46swn">0% • Low</span>
+            </div>
+          </div>
+          <div aria-label="Average attention span" class="iab-card gjs-t-border" id="ivp2wb">
+            <div class="iab-card-title" id="istscx">
+              <img src="https://api.iconify.design/lucide-timer.svg?color=%23334155" width="16" height="16" alt="Timer icon" id="ivn025" />
+              Average attention span
+            </div>
+            <div id="iabSpan" class="iab-card-value">7 min 30 s</div>
+            <div class="iab-card-hint" id="ijetb4">Fixed while you learn</div>
+          </div>
+          <div class="iab-note" id="iezqtq">
+            <img src="https://api.iconify.design/lucide-info.svg?color=%2364748b" width="14" height="14" alt="Hint" id="ipzr0k" />
+            Aligns with the content gutter
+          </div>
+        </aside>
       </section>
-    </main>
-    <section id="infographics-attention-block" aria-label="Attention Meter and Infographics"><!-- Fixed attention meter sidebar -->
-      <aside role="complementary" aria-label="Attention indicator" id="iabRoot" data-attention="68" data-span-seconds="450" class="iab-fixed gjs-t-border">
-        <div class="iab-header" id="it4drw">
-          <span class="iab-title" id="isj9km">
-            <img src="https://api.iconify.design/lucide-activity.svg?color=%23334155" width="16" height="16" alt="Attention icon" id="itc9ic" />
-            Attention
-          </span>
-          <span aria-live="polite" class="iab-value" id="ij10u6">
-            <strong id="iabPercent">68%</strong>
-          </span>
-        </div>
-        <div class="iab-colorbar-wrap" id="i9iucz">
-          <div aria-hidden="true" class="iab-colorbar" id="id4uen">
-            <div id="iabMarker" class="iab-marker"></div>
-            <div id="iabKnob" class="iab-marker-knob"></div>
-          </div>
-          <div aria-hidden="true" class="iab-scale" id="imxbi6">
-            <span class="iab-scale-label" id="iil12l">100% • High</span>
-            <span class="iab-scale-label" id="i7s978">75%</span>
-            <span class="iab-scale-label" id="i0ccfq">50% • Medium</span>
-            <span class="iab-scale-label" id="iscy9n">25%</span>
-            <span class="iab-scale-label" id="i46swn">0% • Low</span>
-          </div>
-        </div>
-        <div aria-label="Average attention span" class="iab-card gjs-t-border" id="ivp2wb">
-          <div class="iab-card-title" id="istscx">
-            <img src="https://api.iconify.design/lucide-timer.svg?color=%23334155" width="16" height="16" alt="Timer icon" id="ivn025" />
-            Average attention span
-          </div>
-          <div id="iabSpan" class="iab-card-value">7 min 30 s</div>
-          <div class="iab-card-hint" id="ijetb4">Updates while you read</div>
-        </div>
-        <div class="iab-note" id="iezqtq">
-          <img src="https://api.iconify.design/lucide-info.svg?color=%2364748b" width="14" height="14" alt="Hint" id="ipzr0k" />
-          Moves on scroll
-        </div>
-      </aside><!-- Full-width infographic section -->
-      <section aria-label="Infographic: reading efficiency" class="iab-infographic" id="ig6z9m">
-        <div class="iab-infographic-container gjs-t-border" id="ifvyb8">
-          <div class="iab-infographic-header" id="irny4k">
-            <h3 class="iab-infographic-title" id="iwyuoo">
-              <img src="https://api.iconify.design/lucide-line-chart.svg?color=%230f172a" width="18" height="18" alt="Chart icon" id="izi0pr" />
-              Reading efficiency
-            </h3>
-            <span class="iab-chart-note" id="i88d5u">A performance-over-time chart will be placed here</span>
-          </div>
-          <div class="iab-infographic-body" id="imt791">
-            <figure aria-label="Chart placeholder" class="iab-chart-placeholder" id="igrunh">
-              <div id="iuiuc2">
-                <img src="https://api.iconify.design/lucide-chart-no-axes-combined.svg?color=%2364748b" width="28" height="28" alt="Chart placeholder" id="i5ba02" />
-                <div id="igc1jy">Space for infographic</div>
-                <small id="iqzz9l">Embed your chart or insert an image</small>
+      <section id="infographics-attention-block" aria-label="Attention Meter and Infographics">
+          <!-- Full-width infographic section -->
+          <section aria-label="Infographic: reading efficiency" class="iab-infographic" id="ig6z9m">
+            <div class="iab-infographic-container gjs-t-border" id="ifvyb8">
+              <div class="iab-infographic-header" id="irny4k">
+                <h3 class="iab-infographic-title" id="iwyuoo">
+                  <img src="https://api.iconify.design/lucide-line-chart.svg?color=%230f172a"
+                      width="18"
+                      height="18"
+                      alt="Chart icon"
+                      id="izi0pr" />
+                  Reading efficiency
+                </h3>
+                <span class="iab-chart-note" id="i88d5u">
+                  A performance-over-time chart can be embedded here
+                </span>
               </div>
-            </figure>
-          </div>
-        </div>
-      </section>
-      <script id="ic06pr">
-        (function() {
-          var root = document.getElementById('iabRoot');
-          if (!root) return;
+              <div class="iab-infographic-body" id="imt791">
+                <figure aria-label="Placeholder for chart" class="iab-chart-placeholder" id="igrunh">
+                  <div id="iuiuc2">
+                    <img src="https://api.iconify.design/lucide-chart-no-axes-combined.svg?color=%2364748b"
+                        width="28"
+                        height="28"
+                        alt="Chart placeholder"
+                        id="i5ba02" />
+                    <div id="igc1jy">Space for infographic</div>
+                    <small id="iqzz9l">Connect your own chart or embed an image</small>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </section>
 
-          function formatSpan(seconds) {
-            seconds = Math.max(0, Math.floor(seconds || 0));
-            var m = Math.floor(seconds / 60);
-            var s = seconds % 60;
-            return (m ? m + ' min ' : '') + (s + ' s');
-          }
+          <script id="ic06pr">
+            (function() {
+              var root = document.getElementById('iabRoot');
+              if (!root) return;
 
-          function clamp(v, min, max) {
-            return Math.min(max, Math.max(min, v));
-          }
+              function formatSpan(seconds) {
+                seconds = Math.max(0, Math.floor(seconds || 0));
+                var m = Math.floor(seconds / 60);
+                var s = seconds % 60;
+                return (m ? m + ' min ' : '') + (s + ' s');
+              }
 
-          function updateFromData() {
-            var attention = parseFloat(root.getAttribute('data-attention'));
-            if (isNaN(attention)) attention = 0;
-            attention = clamp(attention, 0, 100);
+              function clamp(v, min, max) {
+                return Math.min(max, Math.max(min, v));
+              }
 
-            var span = parseFloat(root.getAttribute('data-span-seconds'));
-            if (isNaN(span)) span = 0;
+              function updateFromData() {
+                var attention = parseFloat(root.getAttribute('data-attention'));
+                if (isNaN(attention)) attention = 0;
+                attention = clamp(attention, 0, 100);
 
-            var percentEl = document.getElementById('iabPercent');
-            var spanEl = document.getElementById('iabSpan');
-            var marker = document.getElementById('iabMarker');
-            var knob = document.getElementById('iabKnob');
+                var span = parseFloat(root.getAttribute('data-span-seconds'));
+                if (isNaN(span)) span = 0;
 
-            if (percentEl) percentEl.textContent = Math.round(attention) + '%';
-            if (spanEl) spanEl.textContent = formatSpan(span);
+                var percentEl = document.getElementById('iabPercent');
+                var spanEl = document.getElementById('iabSpan');
+                var marker = document.getElementById('iabMarker');
+                var knob = document.getElementById('iabKnob');
 
-            // Position in colorbar (top from 100% to 0%)
-            var topPos = (100 - attention) + '%';
-            if (marker) marker.style.top = topPos;
-            if (knob) knob.style.top = topPos;
-          }
+                if (percentEl) percentEl.textContent = Math.round(attention) + '%';
+                if (spanEl) spanEl.textContent = formatSpan(span);
 
-          // Initial update
-          updateFromData();
+                var topPos = (100 - attention) + '%';
+                if (marker) marker.style.top = topPos;
+                if (knob) knob.style.top = topPos;
+              }
 
-          // Allow external updates
-          window.addEventListener('attention:update', function(e) {
-            if (!e || !e.detail) return;
-            if (typeof e.detail.attention === 'number') {
-              root.setAttribute('data-attention', String(e.detail.attention));
-            }
-            if (typeof e.detail.spanSeconds === 'number') {
-              root.setAttribute('data-span-seconds', String(e.detail.spanSeconds));
-            }
-            updateFromData();
-          });
-        }());
-      </script>
-    </section>
+              updateFromData();
+
+              window.addEventListener('attention:update', function(e) {
+                if (!e || !e.detail) return;
+                if (typeof e.detail.attention === 'number') {
+                  root.setAttribute('data-attention', String(e.detail.attention));
+                }
+                if (typeof e.detail.spanSeconds === 'number') {
+                  root.setAttribute('data-span-seconds', String(e.detail.spanSeconds));
+                }
+                updateFromData();
+              });
+            }());
+          </script>
+        </section>
+
+      
+    </main>
     <footer class="footer" id="iqlnpt">
       <div class="footer-container" id="ib7bsp">
         <div class="footer-brand" id="ic9x2m">
