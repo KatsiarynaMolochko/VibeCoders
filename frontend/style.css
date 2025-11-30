@@ -5008,33 +5008,40 @@ video {
 .heatmap-grid-wrap {
   display: flex;
   align-items: flex-start;
-  gap: 1.5rem;
-}
-
-.heatmap-grid-header {
-  display: grid;
-  grid-template-columns: auto 1fr;
   gap: 0.75rem;
 }
 
 .heatmap-week-labels {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.55rem;
   font-size: 0.75rem;
   line-height: 1rem;
   color: rgb(100 116 139 / 1);
-  margin-top: 1.5rem;
+  grid-template-rows: repeat(7, 0.9rem);
+  padding-top: 1.9rem;
 }
 
 .heatmap-scroll {
   overflow-x: auto;
 }
 
+.heatmap-month-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 0.9rem;
+  gap: 0.25rem;
+  color: rgb(100 116 139 / 1);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 0.1rem 0 0.35rem;
+  margin-left: 0.15rem;
+}
+
 .heatmap-grid {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 0.85rem;
-  grid-template-rows: repeat(7, 0.85rem);
+  grid-auto-columns: 0.9rem;
+  grid-template-rows: repeat(7, 0.9rem);
   gap: 0.25rem;
   align-items: start;
 }
@@ -5055,32 +5062,32 @@ video {
 }
 
 .legend-shade {
-  width: 0.85rem;
-  height: 0.85rem;
+  width: 0.9rem;
+  height: 0.9rem;
   border-radius: 0.15rem;
-  background-color: rgb(226 232 240 / 1);
+  background-color: rgb(241 245 249 / 1);
   border-width: 1px;
   border-color: rgb(226 232 240 / 1);
 }
 
 .legend-shade:nth-child(2) {
-  background-color: rgb(167 243 208 / 1);
-  border-color: rgb(74 222 128 / 1);
+  background-color: #9be9a8;
+  border-color: #86efac;
 }
 
 .legend-shade:nth-child(3) {
-  background-color: rgb(52 211 153 / 1);
-  border-color: rgb(5 150 105 / 1);
+  background-color: #40c463;
+  border-color: #22c55e;
 }
 
 .legend-shade:nth-child(4) {
-  background-color: rgb(16 185 129 / 1);
-  border-color: rgb(4 120 87 / 1);
+  background-color: #30a14e;
+  border-color: #15803d;
 }
 
 .heatmap-cell {
-  width: 0.85rem;
-  height: 0.85rem;
+  width: 0.9rem;
+  height: 0.9rem;
   border-radius: 0.2rem;
   border: 1px solid rgb(226 232 240 / 1);
   background-color: rgb(248 250 252 / 1);
@@ -5099,23 +5106,23 @@ video {
 }
 
 .heatmap-low {
-  background-color: rgb(226 232 240 / 1);
+  background-color: rgb(241 245 249 / 1);
   border-color: rgb(226 232 240 / 1);
 }
 
 .heatmap-mid {
-  background-color: rgb(167 243 208 / 1);
-  border-color: rgb(74 222 128 / 1);
+  background-color: #9be9a8;
+  border-color: #86efac;
 }
 
 .heatmap-high {
-  background-color: rgb(52 211 153 / 1);
-  border-color: rgb(5 150 105 / 1);
+  background-color: #40c463;
+  border-color: #22c55e;
 }
 
 .heatmap-strong {
-  background-color: rgb(16 185 129 / 1);
-  border-color: rgb(4 120 87 / 1);
+  background-color: #30a14e;
+  border-color: #15803d;
 }
 
 .heatmap-summary {
