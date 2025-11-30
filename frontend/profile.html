@@ -163,9 +163,9 @@
             <h2 class="gjs-t-h2 section-title" id="iupibt">User activity</h2>
           </div>
           <div class="heatmap-controls" id="i3s1n6">
-            <button type="button" id="heatmapRange30" class="control-button">30d</button>
-            <button type="button" id="heatmapRange90" class="control-button">90d</button>
-            <button type="button" id="heatmapRange365" class="control-button">365d</button>
+            <button type="button" id="heatmapRange30" class="control-button is-active" data-heatmap-range="30">30d</button>
+            <button type="button" id="heatmapRange90" class="control-button" data-heatmap-range="90">90d</button>
+            <button type="button" id="heatmapRange365" class="control-button" data-heatmap-range="365">365d</button>
           </div>
         </div>
         <div class="section-body" id="i33adb">
@@ -432,17 +432,28 @@
       // Heatmap
       const grid = document.getElementById('heatmapGrid');
       const monthsRow = document.getElementById('heatmapMonths');
+      const heatmapButtons = Array.from(document.querySelectorAll('[data-heatmap-range]'));
+
+      function setActiveHeatmapButton(days) {
+        heatmapButtons.forEach(btn => {
+          const isActive = Number(btn.dataset.heatmapRange) === days;
+          btn.classList.toggle('is-active', isActive);
+          btn.setAttribute('aria-pressed', isActive);
+        });
+      }
 
       function buildHeatmap(days = 20) {
         grid.innerHTML = '';
         monthsRow.innerHTML = '';
+        grid.setAttribute('aria-label', `Activity grid (last ${days} days)`);
         const today = new Date();
         const startDate = new Date();
         startDate.setDate(today.getDate() - (days - 1));
 
         // GitHub-like layout: weeks run Sunday to Saturday
         const startWeekday = startDate.getDay();
-        const paddedDays = startWeekday + days;
+        const endWeekday = today.getDay();
+        const paddedDays = startWeekday + days + (6 - endWeekday);
         const weeks = Math.ceil(paddedDays / 7);
 
         const data = Array.from({ length: days }, (_, i) => {
@@ -474,36 +485,34 @@
           monthsRow.appendChild(label);
         }
 
-        for (let w = 0; w < weeks; w++) {
-          for (let r = 0; r < 7; r++) {
-            const idx = w * 7 + r;
-            const cell = document.createElement('div');
-            cell.setAttribute('data-gjs-name', 'Heatmap Cell');
+        const totalSlots = weeks * 7;
+        for (let idx = 0; idx < totalSlots; idx++) {
+          const cell = document.createElement('div');
+          cell.setAttribute('data-gjs-name', 'Heatmap Cell');
 
-            if (idx < startWeekday) {
-              cell.className = 'heatmap-cell heatmap-empty';
-              cell.setAttribute('aria-hidden', 'true');
-              grid.appendChild(cell);
-              continue;
-            }
-
-            const dataIndex = idx - startWeekday;
-            const entry = data[dataIndex];
-            if (!entry) {
-              cell.className = 'heatmap-cell heatmap-empty';
-              cell.setAttribute('aria-hidden', 'true');
-              grid.appendChild(cell);
-              continue;
-            }
-
-            cell.className = `heatmap-cell ${getShade(entry.value)}`;
-            const dateLabel = entry.date.toLocaleDateString('en-GB', {
-              month: 'short',
-              day: 'numeric'
-            });
-            cell.title = `${dateLabel} • Sessions: ${entry.value}`;
+          if (idx < startWeekday || idx >= startWeekday + days) {
+            cell.className = 'heatmap-cell heatmap-empty';
+            cell.setAttribute('aria-hidden', 'true');
             grid.appendChild(cell);
+            continue;
           }
+
+          const dataIndex = idx - startWeekday;
+          const entry = data[dataIndex];
+          if (!entry) {
+            cell.className = 'heatmap-cell heatmap-empty';
+            cell.setAttribute('aria-hidden', 'true');
+            grid.appendChild(cell);
+            continue;
+          }
+
+          cell.className = `heatmap-cell ${getShade(entry.value)}`;
+          const dateLabel = entry.date.toLocaleDateString('en-GB', {
+            month: 'short',
+            day: 'numeric'
+          });
+          cell.title = `${dateLabel} • Sessions: ${entry.value}`;
+          grid.appendChild(cell);
         }
 
         const numericValues = data.map(d => d.value);
@@ -514,11 +523,16 @@
         document.getElementById('maxSessionsDay').textContent = maxDay;
         document.getElementById('avgPerDay').textContent = avg;
       }
-      buildHeatmap(30);
+      function handleHeatmapRange(days) {
+        setActiveHeatmapButton(days);
+        buildHeatmap(days);
+      }
 
-      document.getElementById('heatmapRange30').addEventListener('click', () => buildHeatmap(30));
-      document.getElementById('heatmapRange90').addEventListener('click', () => buildHeatmap(90));
-      document.getElementById('heatmapRange365').addEventListener('click', () => buildHeatmap(365));
+      heatmapButtons.forEach(btn =>
+        btn.addEventListener('click', () => handleHeatmapRange(Number(btn.dataset.heatmapRange)))
+      );
+
+      handleHeatmapRange(30);
     </script>
   </body>
 
